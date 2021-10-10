@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="text_view">80dp</dimen>
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="margin_20_dp">20dp</dimen>
+    <dimen name="zero_size">0dp</dimen>
+    <dimen name="margin_10_dp">10dp</dimen>
 </resources>
