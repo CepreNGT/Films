@@ -4,5 +4,5 @@ import com.example.films.model.entities.Film
 
 interface Repository {
     fun getFilmDataFromServer(): Film
-    fun getFilmDataFromLocalStorage(): Film
+    fun getFilmDataFromLocalStorage(): List<Film>
 }

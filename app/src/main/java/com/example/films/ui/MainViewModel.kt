@@ -1,14 +1,16 @@
 package com.example.films.ui
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.films.AppState
 import com.example.films.model.repository.Repository
+import com.example.films.model.repository.RepositoryImpl
 
-class MainViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
-    private val liveData = MutableLiveData<AppState>()
+class MainViewModel(
+    private val liveData: MutableLiveData<AppState> = MutableLiveData(),
+    private val repository: Repository = RepositoryImpl()
+) : ViewModel() {
 
-    fun getLiveData(): LiveData<AppState> = liveData
+    fun getLiveData() = liveData
 
     fun getFilm() = getDataFromLocalSource()
 
@@ -17,10 +19,5 @@ class MainViewModel(private val repository: Repository) : ViewModel(), Lifecycle
         Thread {
             liveData.postValue(AppState.Success(repository.getFilmDataFromLocalStorage()))
         }.start()
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    private fun onViewStart() {
-        Log.i("LifecycleEvent", "onStart")
     }
 }

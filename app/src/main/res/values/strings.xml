@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Films</string>
     <string name="tap_me">TAP ME</string>
+    <string name="error">Error</string>
+    <string name="reload">Reload</string>
+    <string name="rating">Rating:</string>
+    <string name="duration">Duration:</string>
+    <string name="date">Release date:</string>
+    <string name="budget">Budget:</string>
+    <string name="genre">Genre:</string>
 </resources>

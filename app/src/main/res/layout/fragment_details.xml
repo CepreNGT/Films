@@ -55,7 +55,7 @@
                 android:layout_marginTop="@dimen/margin_20_dp"
                 android:textSize="@dimen/text_size"
                 android:textColor="@color/black"
-                tools:text="Genre:"
+                tools:text="@string/genre"
                 app:layout_constraintBottom_toTopOf="@+id/budget_text_view"
                 app:layout_constraintRight_toLeftOf="@id/film_genre"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
                 app:layout_constraintRight_toLeftOf="@id/film_budget"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/genre_text_view"
-                tools:text="Budget:" />
+                tools:text="@string/budget" />
 
             <TextView
                 android:id="@+id/film_budget"
@@ -108,7 +108,7 @@
                 app:layout_constraintRight_toLeftOf="@id/film_date"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/budget_text_view"
-                tools:text="Release date:" />
+                tools:text="@string/date" />
 
             <TextView
                 android:id="@+id/film_date"
@@ -132,7 +132,7 @@
                 app:layout_constraintRight_toLeftOf="@id/film_duration"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/date_text_view"
-                tools:text="Duration:" />
+                tools:text="@string/duration" />
 
             <TextView
                 android:id="@+id/film_duration"
@@ -156,7 +156,7 @@
                 app:layout_constraintRight_toLeftOf="@id/film_rating"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/duration_text_view"
-                tools:text="Rating:" />
+                tools:text="@string/rating" />
 
             <TextView
                 android:id="@+id/film_rating"
@@ -182,12 +182,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/filmGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:constraint_referenced_ids="film_title, scroll_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
