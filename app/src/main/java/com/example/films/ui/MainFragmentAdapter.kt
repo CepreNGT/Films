@@ -43,12 +43,10 @@ class MainFragmentAdapter(private var onItemViewClickListener: MainFragment.OnIt
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(film: Film) {
-            itemView.findViewById<TextView>(R.id.film_title_text_view).text =
-                film.title
-            itemView.findViewById<TextView>(R.id.film_genre_text_view).text =
-                film.genre
-            itemView.setOnClickListener {
-                onItemViewClickListener?.onItemViewClick(film)
+            itemView.apply {
+                findViewById<TextView>(R.id.film_title_text_view).text = film.title
+                findViewById<TextView>(R.id.film_genre_text_view).text = film.genre
+                setOnClickListener { onItemViewClickListener?.onItemViewClick(film) }
             }
         }
     }
