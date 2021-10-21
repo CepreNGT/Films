@@ -12,6 +12,8 @@ import com.example.films.databinding.FragmentMainBinding
 import com.example.films.model.entities.Film
 import com.google.android.material.snackbar.Snackbar
 
+private const val API_KEY = "1f4be45ad9e8a5f98953f0255d934798"
+
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
@@ -51,7 +53,7 @@ class MainFragment : Fragment() {
         binding.mainFragmentRecyclerView.adapter = adapter
         with(viewModel) {
             getLiveData().observe(viewLifecycleOwner, { renderData(it) })
-            getFilm()
+            getFilm(API_KEY)
         }
     }
 
@@ -69,7 +71,7 @@ class MainFragment : Fragment() {
                 mainFragmentRootView.showSnackBar(
                     getString(R.string.error),
                     getString(R.string.reload),
-                    { viewModel.getFilm() },
+                    { viewModel.getFilm(API_KEY) },
                 )
             }
         }
