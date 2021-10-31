@@ -1,16 +1,23 @@
 package com.example.films.ui
 
+import android.os.Build
 import android.os.Bundle
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.films.AppState
 import com.example.films.R
 import com.example.films.databinding.FragmentMainBinding
+import com.example.films.model.FilmLoader
 import com.example.films.model.entities.Film
+import com.example.films.model.server.FilmDTO
 import com.google.android.material.snackbar.Snackbar
+
+private const val API_KEY = "1f4be45ad9e8a5f98953f0255d934798"
 
 class MainFragment : Fragment() {
 
@@ -46,12 +53,13 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.mainFragmentRecyclerView.adapter = adapter
         with(viewModel) {
             getLiveData().observe(viewLifecycleOwner, { renderData(it) })
-            getFilm()
+            getFilm(API_KEY)
         }
     }
 
@@ -69,7 +77,7 @@ class MainFragment : Fragment() {
                 mainFragmentRootView.showSnackBar(
                     getString(R.string.error),
                     getString(R.string.reload),
-                    { viewModel.getFilm() },
+                    { viewModel.getFilm(API_KEY) },
                 )
             }
         }
